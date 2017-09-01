@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>糟糕，您查找的资源有问题，暂时无法显示…</title>
+<link rel="stylesheet" href="../../static/css/reset.css" data-th-href="@{css/reset.css}"/>
+<link rel="stylesheet" href="../../static/css/error.css" data-th-href="@{css/error.css}"/>
+<style>
+.return {
+    font-size:14px;
+    padding:0px !important;
+};
+</style>
+</head>
+<body>
+<input type="hidden" id="movieUrl" data-th-value="@{/ylmovie}" />
+<div id="error-header">
+  	<div class="error-header">
+  		<a href="javascript:void(0)"><img src="../../static/images/errorweihu-logo.png"  data-th-src="@{images/errorweihu-logo.png}" ></a>
+  	</div>
+  </div>
+ <div id="error" class='error-seat'>
+  	<div class="error">
+  		<div class="error500">
+  			<div class="errorcon">
+  				<span class="f18">
+  				<span data-th-text="${msg}">请求异常</span> <br/> 
+  				<p><a class='return' href="javascript:void(0)" data-th-href="@{/ylmovie}">返回首页</a></p>
+  				</span> 
+  			</div>
+  		</div>
+  	</div>
+  </div>
+  <div id="error-bottom">
+  			<div class="error-bottom">
+	  			版权所有 永乐票务 Copyright © 2003-2015 All Rights Reserved 京ICP证030942号 京公网安备11010102000758号<br>
+	                               中国领先的演出门票预订综合性票务网站之一，为您提供各类演出票务网上订票服务。<br>
+	                                北京春秋永乐文化传播有限公司<br>
+	                                快乐生活 源自多彩永乐                   
+           </div>
+  </div>
+</body>
+</html>

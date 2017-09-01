@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title data-sec-authentication="name">永乐票务-电影频道首页</title>
+    <meta name="description" content=""/>
+    <meta name="author" content="Administrator"/>
+    <link rel="stylesheet" href="../../static/css/website-reset.css" data-th-href="@{css/website-reset.css}"/>
+    <!-- <link rel="stylesheet" href="../../static/css/reset.css" data-th-href="@{css/reset.css}"/> -->
+    <link rel="stylesheet" href="../../static/css/movie.css" data-th-href="@{css/movie.css}"/>
+    <script type="text/javascript" src="../../static/js/jquery-1.7.2.min.js"
+            data-th-src="@{js/jquery-1.7.2.min.js}"></script>
+    <script type="text/javascript" src="../../static/js/publicNew.js" data-th-src="@{js/publicNew.js}"></script>        
+    <script type="text/javascript" src="../../static/js/public-min.js" data-th-src="@{js/public-min.js}"></script>
+    <link rel="shortcut icon" href="http://static.228.cn/favicon.ico" data-th-href="@{http://static.228.cn/favicon.ico}"/>
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" data-th-href="@{apple-touch-icon.png}"/>
+
+</head>
+<body>
+<div data-th-replace="~{common/baidu}"></div>	
+<div data-th-replace="~{common/topajax}"></div>
+<div data-th-replace="~{common/topcity}"></div>
+	<!-- ajax请求 -->
+	<input id="contextPath" type="hidden" value="" data-th-value="${contextPath}">
+	<input id="imgPath" type="hidden" value="" data-th-value="${imgPath}">
+
+<div class="movie-content cl">
+	<div class="header-w">
+		 <div class="title">
+		 	 <input type="hidden" id="cityId" name="cityId" th:value="${city.cityid}">
+		 	 <a href="javascript:;" data-th-text="'您已选择-'+${city.cityname}">您已选择-北京市</a>
+		 </div>
+	
+	</div>
+</div>
+
+
+<div data-th-replace="~{common/foot::.foot-w}"></div>
+</body>
+</html>

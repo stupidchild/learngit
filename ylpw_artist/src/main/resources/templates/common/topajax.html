@@ -1,0 +1,403 @@
+<div id="top_ajax" class="top-w">
+<!-- 将top_ajax的内容改写成模板的方式嵌入top.jsp中 -->
+<script id="_template_top_ajax_new" type="text/html">
+<div class="top-nav" id="index-top">
+	{{if !status }}
+		<p class="login-info fl">
+			{{if (unionInfo != null && unionInfo.tw =='y') }}Hi，欢迎光临！
+			{{else}}Hi，欢迎来永乐！{{/if}}
+		<span class="collect ml5 mr5"> <a onclick="addToFavorite();" href="javascript:void(0);" rel="nofollow">添加收藏</a> </span><span class="top_login_reg"> [ <a href="javaScript:login();" id="top-login-btn" class="login" rel="nofollow">登录</a>&nbsp;<a href="http://www.228.com.cn/customer/reg.html" id="top-regist-btn" target="_blank" rel="nofollow">注册</a>] </span></p>
+  	{{/if}}
+	{{if status }}
+  		<p class="login-info fl"> Hi，您好！ <span class="collect ml5 mr5" style="color: red">{{nickname }}</span><span class="top_login_reg"> [ <a href="javaScript:logout();" rel="nofollow" id="logout">退出</a>] </span></p>
+  	{{/if}}
+  	<div class="login-info-my">
+  		<a href="http://www.228.com.cn/personorders/myorder.html" class="my-yongle" rel="nofollow">
+			{{if (unionInfo != null && unionInfo.tw =='y') }}个人中心
+			{{else}}我的永乐{{/if}}</a>
+  		<div class="bg"></div>
+  		<ul class="my-yongle-box">
+  			<li><a href="http://www.228.com.cn/personorders/myorder.html" rel="nofollow">我的订单</a></li>
+  			<li><a href="http://www.228.com.cn/electronicPurse/personalPurse.html" rel="nofollow">电子钱包</a></li>
+  			<li><a href="http://www.228.com.cn/musiccard/queryrecord" rel="nofollow">我的乐通卡</a></li>
+  			<li><a href="http://www.228.com.cn/myIntegral/incomerecord" rel="nofollow">我的积分</a></li>
+  		</ul>
+  	</div>
+	<ul class="quick-menu fr">
+	  <li class="to-cart"></li>
+	  <li class="guide"><a href="#" rel="nofollow">
+			{{if (unionInfo != null && unionInfo.tw =='y') }}网站导航
+			{{else}}永乐导航{{/if}}</a> 
+		<div class="guide-list">
+		  <div class="bg"></div>
+		  <dl>
+			<dt>频道：</dt>
+			<dd>
+			  <ul>
+				<li><a href="http://gugong.228.com.cn/" target="_blank">故宫门票</a></li>
+				<li><a href="http://www.228.com.cn/subject/" target="_blank">专题汇</a></li>
+				<li><a href="http://www.228.com.cn/venue/" target="_blank">场馆库</a></li>
+				<li><a href="http://www.228.com.cn/news/" target="_blank">最新资讯</a></li>
+			  </ul>
+			</dd>
+		  </dl>
+		  <dl>
+			<dt>分类：</dt>
+			<dd>
+			  <ul class="fenlei">
+				<li> <a   href="http://www.228.com.cn/s/yanchanghui/" class="">演唱会</a> </li>
+				<li> <a   href="http://www.228.com.cn/s/yinyuehui/" class="">音乐会</a> </li>
+				<li> <a   href="http://www.228.com.cn/s/huajuwutaiju/" class="">话剧舞台剧</a> </li>
+				<li> <a   href="http://www.228.com.cn/s/wudaobalei/" class="">舞蹈芭蕾</a> </li>
+				<li> <a   href="http://www.228.com.cn/s/xiquzongyi/" class="">戏曲综艺</a> </li>
+				<li> <a   href="http://www.228.com.cn/s/ertongqinzi/" class="">儿童亲子</a> </li>
+				<li> <a   href="http://www.228.com.cn/s/xiuxianyule/" class="" >休闲娱乐</a> </li>
+				<li> <a   href="http://www.228.com.cn/s/tiyusaishi/" class="">体育赛事</a> </li>
+			  </ul>
+			</dd>
+		  </dl>
+		  <dl class="nboder">
+			<dt>地区：</dt>
+			<dd>
+			  <ul class="top_city"></ul>
+			</dd>
+		  </dl>
+		</div>
+	  </li>
+	  <li class="guide" style="padding-right:0px;">
+	  	<a href="#" rel="nofollow" class="top-mobile">手机永乐</a> 
+		<div class="guide-list mobile-area">
+		  <div class="bg m-bg"></div>
+		  <div class="m-ewm"><a href="http://www.228.com.cn/zhuanti/app2014ios/" target="_blank"><img src="http://static.228.com.cn/resources/images/f-ermmobile.png" alt=""></a></div>
+		  <p><a href="http://www.228.com.cn/zhuanti/app2014ios/" target="_blank">iOS版点我</a></p>
+		  <p><a href="http://www.228.com.cn/zhuanti/app2014/" target="_blank">Android版点我</a></p>
+		</div>
+	  </li>
+	  <li><a href="http://www.228.com.cn/help/" rel="nofollow">帮助中心</a></li>
+	  <!-- 联盟 不显示 -->
+	 {{if (unionInfo == null || (unionInfo!=null && unionInfo.tw !='y')) }}
+	  <li class="weibo" style="padding:0;margin:0;">
+		<iframe width="63" height="24" frameborder="0" allowtransparency="true" marginwidth="0" marginheight="0" scrolling="no" border="0" src="http://widget.weibo.com/relationship/followbutton.php?language=zh_cn&width=63&height=24&uid=1638706324&style=1&btn=light&dpc=1"></iframe>
+	  </li>
+	 {{/if}}
+	</ul>
+</div>
+</script>
+<script type="text/javascript">
+	$(function(){
+		//在注册页点头部登录的情况。取跳注册页前的url作为登录后跳转的url地址
+		var lhref = location.href;
+		if(lhref.indexOf("customer/reg.html") > 0 ){
+			var TopLoginReferUrl = document.referrer;
+			if(TopLoginReferUrl == ''){
+				TopLoginReferUrl = "/";
+			}
+			$("#TopLoginReferUrl").val(TopLoginReferUrl);
+		}
+	
+		/*--删除某商品--*/
+		$('.shopcart-del').live('click', function(){
+			var ppid = $(this).attr('ppid');
+			var price = $(this).attr('price');
+			var $boxs = $('.yl-shopcart-box-' + ppid);
+			// var $dl = $(this).parents('dl');
+			// update
+			resetShopCart(ppid, 0, function(data){
+				if (data.status == 0) {
+					var countpp = Number($boxs.find('.yl-shop-chat').val()) * Number(price);
+					var $cartswitch = $('.cart-switch');
+					var $count = Number($cartswitch.data('count')) - 1;
+					$cartswitch.data('count', $count).text('购物车(' + $count + ')');
+					$('.yl-shopcart-num').text($count); // 数量显示
+					//seo优化
+					$('.shopProductNum').text($count); // 数量显示
+					$('#shopProductNum').text($count); // 数量显示
+					$("#cart-count").text($count);
+					//
+					$('.cart-switch').text("购物车(" + $count + ")");
+					$('.cart-count').text($count);
+					// remove box
+					$boxs.remove();
+					$('.yl-shopcart-prices').text(data.total);
+					$('.shopProductTotalPrice').text(data.total);
+					// 对右侧的购物车重新编号
+					  $('.buycar-item1').each(function(i) {
+						$(this).find('s').eq(0).text(i + 1);
+					});  
+					$('.buycar').each(function(i) {
+						$(this).find('span').eq(0).text(i + 1);
+					});
+					/* if (0 === $count) {
+						$('.yl-shopcart-total,.top-buy-btn').hide();
+						$($('.cart p').get(0)).show();
+						$('.yl-shopcart-total').siblings('.fr').hide();
+						$('.product-amount').hide();
+					} */
+					
+					if (0 === $count) {
+						$('.yl-shopcart-total,.top-buy-btn').hide();
+						$('.buycar-ft').hide();
+						$($('.cart p').get(0)).show();
+						$('.yl-shopcart-total').siblings('.fr').hide();
+						$('.buycar-ft').siblings('.fr').hide();
+						$('.t-dot').hide();
+						$('.buycar-yes-list').hide();
+						$('.buycar-yes').hide();
+						$('#Jfbox .buycar').find('.l-dot').hide();
+					} 
+					
+				}
+			});
+			return false;
+		});
+		
+		//关闭所有场次票价弹出层(弹出的登录关闭 )
+	/* 	$('#jump-login .box-closes1').click(function(){
+			$('#jump-login').closeMinbox();
+		}); */
+		
+		// 全部需要先登录的地方
+		$('.check-login').click(function(){
+			var url = $(this).attr('href');
+			$.getJSON('http://www.228.com.cn/ajax/isLogin', function(data){
+				if(data){
+					location.href = url;
+				}else{
+					$('#jump-login').minBox1({});
+				}
+			});
+			return false;
+		});
+		
+		// 加载网站头部公告    
+		var url = "http://www.228.com.cn/ajax/getNotice";
+		$.get(url,{nc:'30'},function(data){
+		    if(data.topMsg){
+		    	$(".tongz").show();
+				$(".tongz .leftMsg").html(data.topMsg);
+	            $(".tongz").slideDown("3000");
+	            $('#header-close img').attr('src','http://static.228.com.cn/resources/images/header-close.gif');
+		    }
+		}, 'json');
+		// 关闭公告
+		$("#header-close").click(function(){
+            $(".tongz").hide();
+        });
+        
+	 });
+
+	/*shopcart reset count*/
+	function setValuesInt(dom, starts, ends, resetsession, totaldom){
+		var $input, val, ppid = $(dom).attr('ppid'), price = parseInt($(dom).attr('price'));
+		if (resetsession) {
+			$input = $('.yl-shop-chat[ppid="' + ppid + '"]');
+			val = $input.eq(0).val().replace(/[^\d]/g,'');
+		} else {
+			$input = $(dom);
+			val = $input.val().replace(/[^\d]/g,'');
+		}
+		if (!val){
+			val = '1';
+		}
+		if (val > ends || val < starts){
+			val = '1';
+		}
+		var count = parseInt(val);
+		if (resetsession) {
+			// update shop chat
+			resetShopCart(ppid, count, function(data){
+				if (data.status == 0) {
+					// data.total 购物车总价	data.changeprices 改变的商品总价
+					$shopcartprices.text((data.total * 1).toFixed(2));
+					$input.val(count);
+					// 改变
+					if (totaldom) {
+						$(totaldom).text((data.changeprices * 1).toFixed(2));
+					}
+				}
+			});
+		} else {
+			$input.val(count);
+		}
+		// 判断库存 $(this).attr('n')
+		var n = $(dom).attr('n');
+		if (n && n != '') {
+			if (count == n) {
+				// totaldom 为购物车页面
+				if (totaldom) {
+					$(dom).parents('ul').next().show();
+					$(dom).parents('ul').next().html("<span class='red'>一次最多可以购买"+n+"张！</span><div class='dingdan-boxs-close' onclick='closelimit(this)'></div>");
+				} else {
+					$(dom).parents('ul').find('.getpassword-showmsg-cont').html('限购' + n + '张！<s></s>').css('color', 'red');
+				}
+			}
+		}
+	}
+	
+	/*-- buy count add del --*///numceshi
+	function num(t, num, dom, resetsession, totaldom) {
+		// t: 1  --  2：++	， num 数量控制	， dom 当前操作的dom -> @this，
+		// resetsession ： 是否同步后台数据，totaldom ：总价的dom 
+		var $input, count, price;
+		var $shopcartprices = $('.yl-shopcart-prices');
+		var prices = parseInt($shopcartprices.eq(0).text());
+		// this input
+		var $thisinput = $(dom).parents('dl').find('input');
+		var ppid = $thisinput.attr('ppid');
+		if(resetsession){
+			$input = $('.yl-shop-chat[ppid="' + ppid + '"]');
+			count = parseInt($input.eq(0).val());
+		} else {
+			$input = $('.yl-order[ppid="' + ppid + '"]');
+			count = parseInt($input.eq(0).val());
+		}
+		price = parseInt($input.eq(0).attr('price'));
+		var maxnum = parseInt(num);
+		if (1 === t) {
+			if(count > 1){
+				prices = prices - price;
+				--count;
+			}else{
+				count = 1;
+			}
+		} else if (2 === t){
+			if(count >= maxnum){
+				count = maxnum;
+			}else{
+				prices = prices + price;
+				++count;
+			}
+		}
+		if (resetsession) {
+			// update shopchat
+			resetShopCart(ppid, count, function(data){
+				if(data.status == 0){
+					//修改购物车
+					if(data.total==".00"){
+						$shopcartprices.text(parseInt(data.changeprices));	
+					}else{
+						 $shopcartprices.text(parseInt(data.changeprices)+parseInt(data.total));
+						
+					}
+					$input.val(count);
+					// 改变
+					if (totaldom) {
+						$(totaldom).text((data.changeprices * 1).toFixed(2));
+					}
+				}
+			});
+		} else {
+			$input.val(count);
+		} 
+		// 判断库存 $(this).attr('n')
+		var n = $(dom).attr('n');
+		if (n && n != '') {
+			if (count == n) {
+				// totaldom 为购物车页面
+				if (totaldom) {
+					$(dom).parents('ul').next().show();
+					$(dom).parents('ul').next().html("<span class='red'>一次最多可以购买"+n+"张！</span><div class='dingdan-boxs-close' onclick='closelimit(this)'></div>");
+				} else {
+					$(dom).parents('ul').find('.getpassword-showmsg-cont').html('限购' + n + '张！<s></s>').css('color', 'red');
+				}
+			}
+		}
+	}
+	
+	/*--提示--*/
+	function alert_suss(msgInfo, msgConts) {
+		$mixBox({
+			boxStyle: 'msg',   // confirm; error; sucess; --旧的方法以后删除
+			msgInfo: msgInfo,
+			msgConts: msgConts
+		});
+	}
+	function alert_sussnew(msgInfo, msgConts) {
+		mixBox({
+			boxStyle: 'msg',   // confirm; error; sucess; --新的方法
+			msgInfo: msgInfo,
+			msgConts: msgConts
+		});
+	}
+	//收藏本站
+		function addToFavorite() {
+			var url = window.location.href;  
+	 		var title = window.document.title;
+		  try {
+		      window.external.addFavorite(url, title);
+		 	 }
+			catch (e) {
+			     try {
+			       window.sidebar.addPanel(title, url, "");
+			    }
+			     catch (e) {
+			         alert("抱歉，您所使用的浏览器无法完成此操作。\n\n加入收藏失败，请使用Ctrl+D进行添加");
+			     }
+			  }
+		}
+	
+
+	/*--reset shopchat count == 0 is delete --*/
+	function resetShopCart(ppid, count, cb){
+		$.post('http://www.228.com.cn/ajax/updateshopcart.json', {productplayid: ppid, num: count}, function(data){
+			if (data.status == 1) {
+				alert_suss("提示！", "请先选择商品！");
+			}else if (data.status == 2) {
+				alert_suss("提示！", "您的购物车已经空了！");
+			}else if (data.status == 3) {
+				alert_suss("提示！", "更新购物车失败，请稍候再试！");
+			}else{
+				cb(data);
+			}
+		});
+	}
+	
+	//随机验证码
+	function reloadImage(o){
+		var img = document.getElementById(o); 
+		img.src = "http://www.228.com.cn/jsp/common/image.jsp?rm=" + Math.random();
+		$("img[class='imagCode']").each(function(){
+			$(this).attr("src", img.src);
+		});	
+	}
+	function getUserMsg(){
+		var url ="http://www.228.com.cn/ajax/getUserInfoFact";
+		$.post(url,function(data){
+			//用户登录的信息
+			var html_ajaxNew = template.render('_template_top_ajax_new', data);
+			$("#top_ajax").html(html_ajaxNew);
+			$.getScript("http://www.228.com.cn/ylpwmovie/js/top_ajax.js");
+			currentCustomerStatus = data.status;
+			//头部切换城市
+			var url = "http://www.228.com.cn/ajax/findpronum.json";
+			$.get(url,{nc:'30'},function(data){
+				if(null != data && data != ''){
+					var html = [];
+					$.each(data.fcitys, function(i,f){
+						html.push("<li><a href='http://www.228.com.cn/"+ f.CITYJX +"/'>" + f.CITYNAME + "</a>");
+						html.push("</li>");
+					});
+					$(".top_city").html(html.join(''));
+				}
+			});
+		});
+		}	
+	//页面加载完获取用户登陆信息
+	$(document).ready(function(){
+		getUserMsg();
+	});	
+</script>
+<script type="text/javascript" src="../../static/js/artTemplate.all.min.js" data-th-src="@{js/artTemplate.all.min.js}"></script>
+</div>
+<div class="tongz" style="width:100%;display: none;">
+    <div style="width:1000px;margin:0 auto;height:23px;">
+       <div class="leftMsg fl" style="width:980px;text-align:center;color:#cc0001;"></div>
+       <div class="fl" style="padding-top:6px;"><a style="cursor: pointer;" id="header-close"><img src="" /></a></div>
+    </div>
+    <div class="cb"></div>
+</div>
+<!--顶部结束-->
+<!--弹出登录start-->
+	<div class="login_msg productnew-login undb" id="jump-login" style="z-index:90000000000000;">
+	</div>
+<!--弹出登录end-->

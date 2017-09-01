@@ -1,0 +1,45 @@
+@charset "utf-8";
+/*
+Description: Reset css inside content for all pages.
+Version: 2.0
+Time: 2013-06-24 14:24
+Author: Jensen & lijin
+*/
+/*背景图片*/
+.error-recommend-con dt .img-bg-135{background:url(../images/sprite-bg.png) no-repeat transparent;}
+/*错误*/
+#error-header{height:112px;width:100%;}
+.error-header{height:112px;width:1000px;margin:0 auto;}
+#errorweihu-header{height:112px;width:100%;background:#faf4f4;}
+.errorweihu-header{height:112px;width:906px;margin:0 auto;padding-left:94px;}
+
+#error{width:100%;background:#faf5f5;overflow:hidden;}
+.error{width:1000px;margin:0 auto;}
+.error502{width:690px;height:280px;background:url(../images/status/error502-bg.png) no-repeat transparent;margin:40px auto 70px auto;position:relative;}
+.errorcon{position:absolute;width:420px;height:110px;top:52px;left:299px;}
+.errorcon span{font-family:Microsoft YaHei,Hei;display:inline-block;margin-bottom:23px;}
+.errorcon p{margin:7px 0 7px 0;}
+.errorconi{display:inline-block;width:118px;height:28px;background:url(../images/status/hand-slow.png) no-repeat;}
+.errorcon p a{display:inline-block;width:113px;height:26px;line-height:26px;text-align:center;background:url(../images/status/error-backsoon.png) no-repeat;color:#0022cd;}
+.errorcon p a:hover{background:url(../images/status/error-backsoon-hover.png) no-repeat;color:#e60012;}
+.errorcon p a i{color:#999;}
+.error-recommend{width:998px;border:1px solid #e4e4e4;}
+.error-recommend-title{height:29px;border-bottom:1px solid #e4e4e4;line-height:29px;width:978px;background:#f8f8f8;text-align:left;padding-left:20px;color:#999;}
+.error-recommend-con{width:953px;padding:24px 12px 24px 33px;overflow:hidden;}
+.error-recommend-con dl{display:block;float:left;width:169px;text-align:center;margin-right:21px;}
+.error-recommend-con dt img{display:block;}
+.error-recommend-con dt .img-bg-135{width:135px;height:8px;background-position:0 -250px;overflow:hidden;}
+.error-recommend-con dt a.error-img{display:block;width:135px;margin:0 auto;}
+.error-recommend-con dd{height:24px;line-height:24px;width:169px;text-align:center;overflow:hidden;}
+.error500{width:690px;height:212px;background:url(../images/status/error500-bg.gif) no-repeat transparent;margin:40px auto 70px auto;position:relative;}
+.error404{width:690px;height:212px;background:url(../images/status/error404-bg.png) no-repeat transparent;margin:40px auto 70px auto;position:relative;}
+.errorweihu{width:438px;height:74px;background:url(../images/error-weihu-bg.gif) no-repeat transparent;margin:10px auto 10px auto;border:3px solid #dcdcdc;padding:310px 180px 0 180px;font-family:Microsoft YaHei,Hei；}
+.return{font-size:14px;padding:0px !important;}
+.error-topp{padding-top:40px;padding-bottom:5px;}
+
+#error-bottom{width:100%;border-top:1px solid #dfdbda;background:#faf4f4;padding:16px 0;}
+.error-bottom{width:625px;text-align:center;overflow:hidden;margin:0 auto;color:#9d9998;}
+#errorweihu-bottom{width:100%;background:#faf4f4;padding:16px 0;}
+.errorweihu-bottom{width:625px;text-align:center;overflow:hidden;margin:0 auto;color:#9d9998;}
+
+.ls-bairen{background:url(../images/status/ls-bairen.png) no-repeat transparent;}

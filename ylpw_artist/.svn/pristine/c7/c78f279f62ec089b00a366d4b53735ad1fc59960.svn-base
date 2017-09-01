@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.ylpw.artist.data.CityMapper">
+    <select id="findByCityid" resultType="java.util.HashMap">
+        select t.cityid "cityid",t.citycode "citycode",t.cityname "cityname",t.flag "flag",t.jxname "jxname",t.provinceid "provinceid",t.provincename "provincename",t.createtime "createtime",t.lasttime "lasttime",t.lastuser "lastuser",t.selectorderby "selectorderby" from t_city t WHERE t.cityid = #{cityid}
+    </select>
+</mapper>

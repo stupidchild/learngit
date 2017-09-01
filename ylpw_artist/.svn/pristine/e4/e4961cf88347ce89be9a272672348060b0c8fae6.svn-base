@@ -1,0 +1,88 @@
+<script id="_template_shopcart_top" type="text/html">
+<a href="http://www.228.com.cn/shopCart/shopCart.html" rel="nofollow" data-count="{{if shopCartProducts}}{{shopCartProducts.length}}{{else}}0{{/if}}" class="cart-switch">购物车({{if shopCartProducts}}{{shopCartProducts.length}}{{else}}0{{/if}})</a>
+<div class="cart">
+	<div class="bg"></div>
+	<p id="yl-shopcart-msg" {{if shopCartProducts }}style="display: none;"{{/if}} >购物车为空，开始购物吧~</p>
+	<div style="max-height:280px;overflow:hidden;overflow:auto;overflow-x:hidden;">
+		{{each shopCartProducts as o index}}
+			<dl class="yl-shopcart-box-{{o.PRODUCTPLAYID}}" style="line-height:21px;">
+			<dt>
+				<p>
+					<a href="http://www.228.com.cn/ticket-{{o.PRODUCTID}}.html">
+						{{if o.NAME.length > 16 }}
+							{{o.NAME.substring(0, 14) }}
+						{{else}}
+							{{o.NAME}}
+						{{/if}}
+					</a>
+				</p>
+			</dt>
+			 <dd>
+				<p class="date">
+					{{o.PLAYDATE}}&nbsp;{{o.TIME }}
+				</p>
+			 </dd>
+			 <dd class="clear" style="width:230px;">
+				<p class="price fl"><span class="c4 bold">{{o.PRICE}}</span> 元</p>
+				<p class="fl" style="margin-left: 20px;"><span class="c4 bold">{{o.num}}</span>张</p>
+				<p class="num fl" style="visibility:hidden;">
+			  	  <a href="javascript:void(0);" class="num-sub" onclick="num(1, 30, this, true);" ></a>
+				  <input class="yl-shop-chat" type="text" value="{{o.num}}" ppid="{{o.PRODUCTPLAYID}}" price="{{o.PRICE}}" onkeyup="setValuesInt(this,1,30,true);" />
+				  <a href="javascript:void(0);" class="num-add" onclick="num(2, 30, this, true);" ></a>
+				</p>
+				<p class="cait-del fr mr20"><a href="#"  ppid="{{o.PRODUCTPLAYID}}" price="{{o.PRICE}}" class="shopcart-del c3" >删除</a></p>
+			</dd>
+		</dl>
+	{{/each}}
+</div>
+<div class="top-buy-btn clearfloat yl-shopcart-total" style="border-top:0 none;{{if !shopCartProducts}}display: none;{{/if}}">
+	<div class="clearfloat">
+		<div class="fl">共 <span class="c4 product-boxer-nub yl-shopcart-num"><b>{{if shopCartProducts}}{{shopCartProducts.length}}{{else}}0{{/if}}</b></span> 件商品</div>
+		<div class="fr mr10">总金额：<span class="product-boxer-nub yl-shopcart-prices">{{#ylprices}}</span> 元</div>
+	</div>
+	<p class="fr mr10"><a href="http://www.228.com.cn/shopCart/shopCartBuy.html" class="product-boxer-cont-btn"></a></p>
+</div>
+</div>
+</script>
+<script id="_template_shopcart_product" type="text/html">
+{{if !shopCartProducts}}
+ 	<a href="javascript:void(0);"></a>
+	<s class="l-dot"></s>
+	<s style="display: none;" class="t-dot" id="cart-count"></s>
+	<div style="display: none;" class="buycar-no" id="buycar-no" >
+		<p>购物车为空，开始购物吧~</p>
+	</div>
+	{{else}}
+<div class="buycar-yes"  style="display: none;">
+	<div class="buycar-yes-list">
+		{{each shopCartProducts as o i}}
+			<dl class="yl-shopcart-box-{{o.PRODUCTPLAYID}}">
+				<dd class="buycar-item1 clearfloat">
+					<s>{{i + 1}}</s>
+					<a href="http://www.228.com.cn/ticket-{{o.PRODUCTID}}.html">
+						{{if o.NAME.length > 16 }}
+							{{o.NAME.substring(0, 14) }}
+						{{else}}
+							{{o.NAME}}
+						{{/if}}
+					</a>
+				</dd>
+				<dd class="buycar-item2">{{o.PLAYDATE}}&nbsp;{{o.TIME}}</dd>
+				<dd class="buycar-item3 clearfloat">
+					<span class="item3-sp1 fl"><em>{{o.PRICE}}</em> 元</span>
+					<span class="item3-sp2 fl"><em>{{o.num}}</em> 张</span>
+					<a class="fl c3 shopcart-del"  ppid="{{o.PRODUCTPLAYID}}" price="{{o.PRICE}}" href="javascript:void(0)">删除</a>
+				</dd>
+			</dl>
+		{{/each}}
+	</div>
+	<dl class="buycar-ft">
+		<dd class="clearfloat">
+			<span class="fl">共 <em class="shopProductNum" id="shopProductNum">{{if shopCartProducts}}{{shopCartProducts.length}}{{else}}0{{/if}}</em> 件商品</span>
+			<span class="fr">总金额：<em class="shopProductTotalPrice" id="shopProductTotalPrice">{{ylprices}}</em> 元</span>
+		</dd>
+		<dd class="btn-buycar-sub fr mt10"><a href="http://www.228.com.cn/shopCart/shopCartBuy.html"></a></dd>	
+	</dl>
+</div>
+{{/if}}
+</script>

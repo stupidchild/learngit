@@ -1,0 +1,82 @@
+<div class="header-w">
+        <div id="header">
+            <a href="http://www.228.com.cn/" title="永乐票务" class="toplogo">永乐票务</a>
+           	<!--城市选择-->
+            <div class="header-z fl">
+					<h3 data-th-text="${city.cityname}">全国</h3>
+					<div class="movie-city">
+						<a class="switch" href="javascript:;">切换城市</a>
+						<div class="city-set">
+							<dl>
+								<dt>热门城市</dt>
+								<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=1}">北京</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=51900}">上海</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=758581}">杭州</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=131004}">广州</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=131005}">深圳</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=131003}">重庆</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=131002}">成都</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=131006}">南京</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=758662}">武汉</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=758777}">西安</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=758610}">厦门</a></dd>
+						<dd><a href="javascript:;" data-th-href="@{/ylmovie?cityId=50050}">天津</a></dd>
+							</dl>
+							<a class="fr mt3" href="javascript:;" data-th-href="@{/moviemorecity}">更多城市&gt;</a>
+						</div>
+					</div>
+				</div>
+            	<!--城市选择-->
+            
+            <!--快速导航-->
+            <div class="quick-guide" name="__quickguide">
+                <a name="__AD_quickarrow" href="#" class="quick-arrow"></a>
+                <ul>
+                    <li>
+                        <a href="http://www.228.com.cn/integral/" name="__AD_integral" target="_blank" class="qg1a">
+                            <p>积分商城</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.228.com.cn/subject/" name="__AD_subject" target="_blank" class="qg2a">
+                            <p>精彩专题</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://www.228.com.cn/common/ticket.html" name="__AD_ticket.html" target="_blank" class="qg3a" rel="nofollow">
+                            <p>票面真伪</p>
+                        </a>
+                    </li>
+                    <li class="undb">
+                        <a href="http://www.228.com.cn/news/" name="__AD_news" target="_blank" class="qg4a">
+                            <p>新闻资讯</p>
+                        </a>
+                    </li>
+                    <li class="undb">
+                        <a href="http://www.228.com.cn/venue/" name="__AD_venue" target="_blank" class="qg5a">
+                            <p>场馆库</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--/快速导航-->
+        </div>
+    </div>
+    <!--导航-->
+    <div class="movie-nav-w">
+		<div id="movie-main-nav" name="__mainnav">
+			<ul class="f14 bold m-top-nav">
+				<li><a href="/" title="首页" name="__shouye" class="nbg">首页</a></li>
+				<li><a href="/yanchanghui/" name="__yanchanghui" title="演唱会">演唱会</a></li>
+				<li><a href="/xiju/" name="__xiju" title="戏剧">戏剧</a></li>
+				<li><a href="/gudian/" name="__gudian" title="舞蹈古典">舞蹈古典</a></li>
+				<li><a href="/xiqu/" name="__xiqu" title="戏曲综艺">戏曲综艺</a></li>
+				<li><a href="/qinzi/" name="__qinzi" title="亲子">亲子</a></li>
+				<li><a href="/tiyu/" name="__tiyu" title="体育">体育</a></li>
+				<li><a href="/ylpwmovie/ylmovie" name="__movie" title="电影" class="on">电影</a></li>
+				<li><a href="http://gugong.228.com.cn/" target="_blank" name="__gugong" title="故宫订票">故宫订票</a></li>
+				<li><a href="/dzhuanti/gjdjy/" name="__gjdjy" target="_blank" title="国家大剧院">国家大剧院</a></li>
+			</ul>
+			
+		</div>
+</div>
